@@ -42,6 +42,16 @@ class DrupalCorn
     m.reply "http://2013.drupalcorn.org"
   end
 end
+
+class DrupalHawks
+  include Cinch::Plugin
+
+  match "drupalhawks-group"
+  def execute(m)
+    m.reply "We are a collection of Drupal enthusiasts from Eastern Iowa."
+    m.reply "We don't have a regular meeting time currently, but would love for someone to organize this. :)"
+    m.reply "https://groups.drupal.org/drupalhawks"
+  end
 end
 
 bot = Cinch::Bot.new do
