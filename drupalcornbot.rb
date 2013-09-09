@@ -34,6 +34,14 @@ class DrupalCorn
     m.reply "https://groups.drupal.org/iowa"
     m.reply "Google Map - http://goo.gl/maps/dIINj"
   end
+
+  match "drupalcorn-camp"
+  def execute(m)
+    m.reply "DrupalCorn Camp is a Drupal Camp, held each year somewhere in the state of Iowa."
+    m.reply "Latest camp:"
+    m.reply "http://2013.drupalcorn.org"
+  end
+end
 end
 
 bot = Cinch::Bot.new do
