@@ -19,7 +19,7 @@ class Help
 
   match /help(?: (\S+))?/
   def execute(m)
-    m.reply "I respond to the following commands: hello, !help, !drupalcorn, /msg cornbot history"
+    m.reply "I respond to the following commands: hello, !help, !drupalcorn-group, !drupalcorn-camp, !drupalhawks-group, /msg cornbot history"
   end
 end
 
