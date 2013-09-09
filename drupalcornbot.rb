@@ -27,7 +27,7 @@ end
 class DrupalCorn
   include Cinch::Plugin
 
-  match "drupalcorn"
+  match "drupalcorn-group"
   def execute(m)
     m.reply "We meet the last Thursday of every month from 7pm - 9pm usually followed by beers at a local watering hole."
     m.reply "Meetings are in Room 8, Curtiss Hall on the ISU campus. It is easy to get to."
