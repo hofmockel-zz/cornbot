@@ -19,7 +19,7 @@ class Help
 
   match /help(?: (\S+))?/
   def execute(m)
-    m.reply "I respond to the following commands: hello, !help, !drupalcorn, /msg cornbot history"
+    m.reply "I respond to the following commands: hello, !help, !drupalcorn-group, !drupalcorn-camp, !drupalhawks-group, /msg cornbot history"
   end
 end
 
@@ -27,12 +27,30 @@ end
 class DrupalCorn
   include Cinch::Plugin
 
-  match "drupalcorn"
+  match "drupalcorn-group"
   def execute(m)
     m.reply "We meet the last Thursday of every month from 7pm - 9pm usually followed by beers at a local watering hole."
     m.reply "Meetings are in Room 8, Curtiss Hall on the ISU campus. It is easy to get to."
     m.reply "https://groups.drupal.org/iowa"
     m.reply "Google Map - http://goo.gl/maps/dIINj"
+  end
+
+  match "drupalcorn-camp"
+  def execute(m)
+    m.reply "DrupalCorn Camp is a Drupal Camp, held each year somewhere in the state of Iowa."
+    m.reply "Latest camp:"
+    m.reply "http://2013.drupalcorn.org"
+  end
+end
+
+class DrupalHawks
+  include Cinch::Plugin
+
+  match "drupalhawks-group"
+  def execute(m)
+    m.reply "We are a collection of Drupal enthusiasts from Eastern Iowa."
+    m.reply "We don't have a regular meeting time currently, but would love for someone to organize this. :)"
+    m.reply "https://groups.drupal.org/drupalhawks"
   end
 end
 
