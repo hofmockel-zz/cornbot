@@ -24,7 +24,7 @@ class Help
 end
 
 
-class DrupalCorn
+class DrupalCornGroup
   include Cinch::Plugin
 
   match "drupalcorn-group"
@@ -34,6 +34,10 @@ class DrupalCorn
     m.reply "https://groups.drupal.org/iowa"
     m.reply "Google Map - http://goo.gl/maps/dIINj"
   end
+end
+
+class DrupalCornCamp
+  include Cinch::Plugin
 
   match "drupalcorn-camp"
   def execute(m)
@@ -59,7 +63,7 @@ bot = Cinch::Bot.new do
     c.server = "irc.freenode.net"
     c.channels = ["#drupalcorn"]
     c.nick = "cornbot"
-    c.plugins.plugins = [HelloWorld, DrupalCorn, Help, Cinch::History]
+    c.plugins.plugins = [HelloWorld, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History]
     c.plugins.options[Cinch::History] = {
      :mode => :max_messages,
      :max_messages => 20,
