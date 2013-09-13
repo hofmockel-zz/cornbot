@@ -4,6 +4,8 @@
 
 require "cinch"
 require_relative "../Quintus_cinch-plugins/plugins/history"
+require_relative "../cinch-identify/lib/cinch/plugins/identify"
+require_relative "../cornbot-identity"
 
 class HelloWorld
   include Cinch::Plugin
@@ -63,12 +65,17 @@ bot = Cinch::Bot.new do
     c.server = "irc.freenode.net"
     c.channels = ["#drupalcorn"]
     c.nick = "cornbot"
-    c.plugins.plugins = [HelloWorld, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History]
+    c.plugins.plugins = [HelloWorld, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History, Cinch::Plugins::Identify]
     c.plugins.options[Cinch::History] = {
      :mode => :max_messages,
      :max_messages => 20,
      # :max_age => 5,
      :time_format => "%H:%M"
+    }
+    c.plugins.options[Cinch::Plugins::Identify] = {
+      :username => IDENTITY,
+      :password => PASSWORD,
+      :type     => :nickserv,
     }
   end
 end
