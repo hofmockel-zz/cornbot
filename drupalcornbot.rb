@@ -16,6 +16,19 @@ class HelloWorld
   end
 end
 
+class Morning
+  include Cinch::Plugin
+
+  match /morning/i, use_prefix: false
+  def execute(m)
+    adjective = ["beautiful", "wonderful", "superb", "fantabulous", "awesome", "promising", "great"].sample
+    species = ["chickens", "cows", "horses", "jackalopes", "turtles", "grasshoppers", "butterflies"].sample
+    verbing =["jumping", "hopping", "gathering", "singing", "mooing", "fluffing", "skipping", "flapping"].sample
+    m.reply "Morning, #{m.user.nick}. It's a #{adjective} morning and the #{species} are #{verbing}!"
+  end
+
+end
+
 class Help
   include Cinch::Plugin
 
@@ -65,7 +78,7 @@ bot = Cinch::Bot.new do
     c.server = "irc.freenode.net"
     c.channels = ["#drupalcorn"]
     c.nick = "cornbot"
-    c.plugins.plugins = [HelloWorld, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History, Cinch::Plugins::Identify]
+    c.plugins.plugins = [HelloWorld, Morning, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History, Cinch::Plugins::Identify]
     c.plugins.options[Cinch::History] = {
      :mode => :max_messages,
      :max_messages => 20,
