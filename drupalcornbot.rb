@@ -25,7 +25,7 @@ class Morning
     species = ["chickens", "cows", "horses", "jackalopes", "turtles", "grasshoppers", "butterflies", "squash"].sample
     verbing = ["jumping", "hopping", "gathering", "singing", "mooing", "fluffing", "skipping", "flapping"].sample
     if species == "squash"
-       verbing = "hunting"
+       verbing = "being hunted"
     end
     m.reply "Morning, #{m.user.nick}. It's a #{adjective} morning and the #{species} are #{verbing}!"
   end
