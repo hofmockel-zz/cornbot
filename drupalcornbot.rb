@@ -64,7 +64,7 @@ bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.freenode.net"
     c.channels = ["#drupalcorn"]
-    c.nick = "cornbot"
+    c.nick = IDENTITY
     c.plugins.plugins = [HelloWorld, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History, Cinch::Plugins::Identify]
     c.plugins.options[Cinch::History] = {
      :mode => :max_messages,
