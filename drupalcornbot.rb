@@ -21,9 +21,12 @@ class Morning
 
   match /morning/i, use_prefix: false
   def execute(m)
-    adjective = ["beautiful", "wonderful", "superb", "fantabulous", "awesome", "promising", "great"].sample
-    species = ["chickens", "cows", "horses", "jackalopes", "turtles", "grasshoppers", "butterflies"].sample
-    verbing =["jumping", "hopping", "gathering", "singing", "mooing", "fluffing", "skipping", "flapping"].sample
+    adjective = ["beautiful", "wonderful", "superb", "fantabulous", "awesome", "promising", "great", "excellent"].sample
+    species = ["chickens", "cows", "horses", "jackalopes", "turtles", "grasshoppers", "butterflies", "squash"].sample
+    verbing = ["jumping", "hopping", "gathering", "singing", "mooing", "fluffing", "skipping", "flapping"].sample
+    if species == "squash"
+       verbing = "hunting"
+    end
     m.reply "Morning, #{m.user.nick}. It's a #{adjective} morning and the #{species} are #{verbing}!"
   end
 
