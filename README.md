@@ -1,10 +1,10 @@
 cornbot
 =======
 
-IRC bot built with Cinch
+An IRC bot built with Cinch, https://github.com/cinchrb/cinch, https://github.com/Quintus/cinch-plugins, and https://github.com/cinchrb/cinch-identify
 
-https://github.com/cinchrb/cinch
+Cornbot exists in service of and as entertain for the Freenode channel #drupalcorn
 
-and
+Maintained by Michael Hofmockel
 
-https://github.com/Quintus/cinch-plugins
+Pull-Requests encouraged
