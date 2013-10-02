@@ -42,7 +42,7 @@ class Afternoon
     adverb = ["awesomely", "in a grand fashion", "wonderfully", "superbly", "delightfully", "magnificently", ""].sample
     adverb << ' ' if !adverb.empty?
     whenitwas = ["today", "this morning", "these last few days", "these last couple days", "lately", "since DrupalCorn"].sample
-    m.reply "Afternoon, #{m.user.nick}. You've #{preadverb}#{verbed} {#adverb}#{whenitwhas}!"
+    m.reply "Afternoon, #{m.user.nick}. You've #{preadverb}#{verbed} #{adverb}#{whenitwas}!"
     time = Time.new
     if ("13:30"..."13:44").include?(time.strftime("%H:%M")) and [true, false].sample
       m.reply "It's tea time!"
