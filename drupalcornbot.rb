@@ -29,7 +29,25 @@ class Morning
     end
     m.reply "Morning, #{m.user.nick}. It's a #{adjective} morning and the #{species} are #{verbing}!"
   end
+end
 
+class Afternoon
+  include Cinch::Plugin
+
+  match /afternoon/i, use_prefix: false
+  def execute(m)
+    preadverb = ["certainly", "sure", "absolutely", "unquestionably", ""].sample
+    preadverb << ' ' if !preadverb.empty?
+    verbed = ["worked hard", "innovated", "been creative", "set an example", "led the way", "created something new", "rocked the world"].sample
+    adverb = ["awesomely", "in a grand fashion", "wonderfully", "superbly", "delightfully", "magnificently", ""].sample
+    adverb << ' ' if !adverb.empty?
+    whenitwas = ["today", "this morning", "these last few days", "these last couple days", "lately", "since DrupalCorn"].sample
+    m.reply "Afternoon, #{m.user.nick}. You've #{preadverb}#{verbed} {#adverb}#{whenitwhas}!"
+    time = Time.new
+    if ("13:30"..."13:44").include?(time.strftime("%H:%M")) and [true, false].sample
+      m.reply "It's tea time!"
+    end
+  end
 end
 
 class Help
@@ -81,7 +99,7 @@ bot = Cinch::Bot.new do
     c.server = "irc.freenode.net"
     c.channels = ["#drupalcorn"]
     c.nick = IDENTITY
-    c.plugins.plugins = [HelloWorld, Morning, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History, Cinch::Plugins::Identify]
+    c.plugins.plugins = [HelloWorld, Morning, Afternoon, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History, Cinch::Plugins::Identify]
     c.plugins.options[Cinch::History] = {
      :mode => :max_messages,
      :max_messages => 20,
