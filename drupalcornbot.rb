@@ -57,9 +57,9 @@ class Morning
 
   match /morning/i, use_prefix: false
   def execute(m)
-    adjective = ["beautiful", "wonderful", "superb", "fantabulous", "awesome", "promising", "great", "excellent"].sample
-    species = ["chickens", "cows", "horses", "jackalopes", "turtles", "grasshoppers", "butterflies", "squash"].sample
-    verbing = ["jumping", "hopping", "gathering", "singing", "mooing", "fluffing", "skipping", "flapping"].sample
+    adjective = ["crisp", "blustery", "wintery", "snowy", "slushy", "nasty", "ugly", "frozen"].sample
+    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whale", "squash"].sample
+    verbing = ["freezing", "shuffling", "gathering", "singing the blues", "sleeping", "playing", "waddling", "flapping"].sample
     if species == "squash"
        verbing = "being hunted"
     end
