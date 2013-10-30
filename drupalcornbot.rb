@@ -4,6 +4,7 @@
 
 require "cinch"
 require_relative "../Quintus_cinch-plugins/plugins/history"
+require_relative "../Quintus_cinch-plugins/plugins/link_info"
 require_relative "../cinch-identify/lib/cinch/plugins/identify"
 require_relative "../cornbot-identity"
 
