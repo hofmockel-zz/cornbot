@@ -9,34 +9,34 @@ require_relative "../cornbot-identity"
 
 # class Daytime
 #   include Cinch::Plugin
-#   
+#
 #   t = Time.now
-# 
+#
 #   morningtime.new(
 #     Time.local(t.year, t.month, t.day, 5),
 #     Time.local(t.year, t.month, t.day, 12)
 #   ) === t
-#   
+#
 #   afternoontime.new(
 #     Time.local(t.year, t.month, t.day, 12, 01),
 #     Time.local(t.year, t.month, t.day, 17)
 #   ) === t
-#   
+#
 #   eveningtime.new(
 #     Time.local(t.year, t.month, t.day, 17),
 #     Time.local(t.year, t.month, t.day, 20)
 #   ) === t
-#   
+#
 #   nighttime.new(
 #     Time.local(t.year, t.month, t.day, 20),
 #     Time.local(t.year, t.month, t.day, 5)
 #   ) === t
-#   
+#
 # end
 
 class PHPfilter
   include Cinch::Plugin
-  
+
   match /hate php filter/i, use_prefix: false
   def execute(m)
     m.reply "Use this to kill the PHP Filter module without hacking core.  https://github.com/hofmockel/php/blob/master/README.md"
@@ -135,7 +135,7 @@ bot = Cinch::Bot.new do
     c.server = "irc.freenode.net"
     c.channels = ["#drupalcorn"]
     c.nick = IDENTITY
-    c.plugins.plugins = [PHPfilter, Morning, Afternoon, CentralIowa, DrupalCorn, DrupalHawks, Help, WTF, Cinch::History, Cinch::Plugins::Identify]
+    c.plugins.plugins = [PHPfilter, Morning, Afternoon, CentralIowa, DrupalCorn, DrupalHawks, Help, WTF, Cinch::History, Cinch::Plugins::Identify, Cinch::LinkInfo]
     c.plugins.options[Cinch::History] = {
      :mode => :max_messages,
      :max_messages => 20,
@@ -146,6 +146,9 @@ bot = Cinch::Bot.new do
       :username => IDENTITY,
       :password => PASSWORD,
       :type     => :nickserv,
+    }
+    c.plugins.options[Cinch::LinkInfo] = {
+      :blacklist => [/\.xz$/]
     }
   end
 end
