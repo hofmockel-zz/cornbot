@@ -7,15 +7,6 @@ require_relative "../Quintus_cinch-plugins/plugins/history"
 require_relative "../cinch-identify/lib/cinch/plugins/identify"
 require_relative "../cornbot-identity"
 
-class HelloWorld
-  include Cinch::Plugin
-
-  match /hello/i, use_prefix: false
-  def execute(m)
-    m.reply "Hello, #{m.user.nick}"
-  end
-end
-
 # class Daytime
 #   include Cinch::Plugin
 #   
@@ -86,20 +77,29 @@ class Afternoon
   end
 end
 
+class WTF
+  include Cinch::Plugin
+
+  match /wtf/i, use_prefix: false
+  def execute(m)
+    m.reply "WTF?  http://youtu.be/N3YypTOaa08"
+  end
+end
+
 class Help
   include Cinch::Plugin
 
   match /help(?: (\S+))?/
   def execute(m)
-    m.reply "I respond to the following commands: hello, !help, !drupalcorn-group, !drupalcorn-camp, !drupalhawks-group, /msg cornbot history"
+    m.reply "I respond to the following commands: hello, !help, !DrupalCorn, Central Iowa, DrupalHawks, /msg cornbot history"
+    m.reply "For more information see - https://github.com/hofmockel/cornbot"
   end
 end
 
-
-class DrupalCornGroup
+class CentralIowa
   include Cinch::Plugin
 
-  match "drupalcorn-group"
+  match /^(cidug|drupalcob|central iowa)$/i, use_prefix: false
   def execute(m)
     m.reply "We meet the 2nd Thursday of every month from 7pm - 9pm usually followed by beers at a local watering hole."
     m.reply "Meetings are in Room 8, Curtiss Hall on the ISU campus. It is easy to get to."
@@ -108,10 +108,10 @@ class DrupalCornGroup
   end
 end
 
-class DrupalCornCamp
+class DrupalCorn
   include Cinch::Plugin
 
-  match "drupalcorn-camp"
+  match /drupalcorn/i
   def execute(m)
     m.reply "DrupalCorn Camp is a Drupal Camp, held each year somewhere in the state of Iowa."
     m.reply "Latest camp:"
@@ -122,7 +122,7 @@ end
 class DrupalHawks
   include Cinch::Plugin
 
-  match "drupalhawks-group"
+  match /drupalhawks/i, use_prefix: false
   def execute(m)
     m.reply "We are a collection of Drupal enthusiasts from Eastern Iowa."
     m.reply "We don't have a regular meeting time currently, but would love for someone to organize this. :)"
@@ -135,7 +135,7 @@ bot = Cinch::Bot.new do
     c.server = "irc.freenode.net"
     c.channels = ["#drupalcorn"]
     c.nick = IDENTITY
-    c.plugins.plugins = [HelloWorld, PHPfilter, Morning, Afternoon, DrupalCornGroup, DrupalCornCamp, DrupalHawks, Help, Cinch::History, Cinch::Plugins::Identify]
+    c.plugins.plugins = [PHPfilter, Morning, Afternoon, CentralIowa, DrupalCorn, DrupalHawks, Help, WTF, Cinch::History, Cinch::Plugins::Identify]
     c.plugins.options[Cinch::History] = {
      :mode => :max_messages,
      :max_messages => 20,
