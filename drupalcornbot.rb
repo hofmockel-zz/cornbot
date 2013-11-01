@@ -3,6 +3,7 @@
 #Daemons.daemonize
 
 require "cinch"
+require "forecast_io"
 require_relative "../Quintus_cinch-plugins/plugins/history"
 require_relative "../Quintus_cinch-plugins/plugins/link_info"
 require_relative "../cinch-identify/lib/cinch/plugins/identify"
@@ -49,8 +50,28 @@ class Morning
 
   match /morning/i, use_prefix: false
   def execute(m)
-    adjective = ["crisp", "blustery", "wintery", "snowy", "slushy", "slippery", "windy", "frozen", "beautiful", "Sparkly"].sample
-    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "Harp Seal" "squash"].sample
+    ForecastIO.api_key = FORECASTIOAPIKEY
+    forecast = ForecastIO.forecast(42, 93, params: { exclude: 'minutely,hourly,daily,alerts,flags'})
+    when 'clear-day'
+      adjective = ["clear", "sunny", "crisp", "bright", "sparkly", "beautiful", "sunny sunny"].sample
+    when 'rain'
+      adjective = ["rainy", "wet", "damp", "aqueous", "drizzly", "grey"].sample
+    when 'snow'
+      adjective = ["snowy", "wintery", "flaky"].sample
+    when 'sleet'
+      adjective = ["sleety", "great day to be alive this", "fresh", "slippery"].sample
+    when 'wind'
+      adjective = ["windy", "blustery"].sample
+    when 'fog'
+      adjective = ["foggy", "foggy foggy", "thick as pea soup out there this"].sample
+    when 'cloudy'
+      adjective = ["cloudy", "overcast", "cozy", "huddly"].sample
+    when 'partly-cloudy-day'
+      adjective = ["beautiful", "promising", "super"].sample
+    else
+      adjective = ["crisp", "blustery", "wintery", "snowy", "slushy", "slippery", "windy", "frozen", "beautiful", "sparkly"].sample
+    end    
+    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "Harp Seal", "squash"].sample
     verbing = ["cozy", "snug", "freezing", "shuffling", "gathering", "singing the blues", "sleeping", "playing", "waddling", "flapping"].sample
     if species == "squash"
        verbing = "being hunted"
