@@ -51,7 +51,8 @@ class Morning
   match /morning/i, use_prefix: false
   def execute(m)
     ForecastIO.api_key = FORECASTIOAPIKEY
-    forecast = ForecastIO.forecast(42, 93, params: { exclude: 'minutely,hourly,daily,alerts,flags'})
+    forecast = ForecastIO.forecast(42, -93, params: { exclude: 'minutely,hourly,daily,alerts,flags'})
+    case forecast.currently.icon
     when 'clear-day'
       adjective = ["clear", "sunny", "crisp", "bright", "sparkly", "beautiful", "sunny sunny"].sample
     when 'rain'
@@ -70,7 +71,7 @@ class Morning
       adjective = ["beautiful", "promising", "super"].sample
     else
       adjective = ["crisp", "blustery", "wintery", "snowy", "slushy", "slippery", "windy", "frozen", "beautiful", "sparkly"].sample
-    end    
+    end
     species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "Harp Seal", "squash"].sample
     verbing = ["cozy", "snug", "freezing", "shuffling", "gathering", "singing the blues", "sleeping", "playing", "waddling", "flapping"].sample
     if species == "squash"
