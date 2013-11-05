@@ -72,7 +72,7 @@ class Morning
     else
       adjective = ["crisp", "blustery", "wintery", "snowy", "slushy", "slippery", "windy", "frozen", "beautiful", "sparkly"].sample
     end    
-    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "Harp Seal", "squash"].sample
+    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "harp seals", "squash"].sample
     verbing = ["cozy", "snug", "freezing", "shuffling", "gathering", "singing the blues", "sleeping", "playing", "waddling", "flapping"].sample
     if species == "squash"
        verbing = "being hunted"
