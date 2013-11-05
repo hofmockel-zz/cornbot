@@ -4,6 +4,7 @@
 
 require "cinch"
 require "forecast_io"
+require "indefinite_article"
 require_relative "../Quintus_cinch-plugins/plugins/history"
 require_relative "../Quintus_cinch-plugins/plugins/link_info"
 require_relative "../cinch-identify/lib/cinch/plugins/identify"
@@ -76,7 +77,8 @@ class Morning
     if species == "squash"
        verbing = "being hunted"
     end
-    m.reply "Morning, #{m.user.nick}. It's a #{adjective} morning and the #{species} are #{verbing}!"
+    a_or_an = adjective.indefinite_article
+    m.reply "Morning, #{m.user.nick}. It's #{a_or_an} #{adjective} morning and the #{species} are #{verbing}!"
   end
 end
 
