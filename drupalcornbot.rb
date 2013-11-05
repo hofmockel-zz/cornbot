@@ -62,11 +62,11 @@ class Morning
     when 'sleet'
       adjective = ["sleety", "great day to be alive this", "fresh", "slippery"].sample
     when 'wind'
-      adjective = ["windy", "blustery"].sample
+      adjective = ["windy", "blustery", "breezy", "gusty"].sample
     when 'fog'
       adjective = ["foggy", "foggy foggy", "thick as pea soup out there this"].sample
     when 'cloudy'
-      adjective = ["cloudy", "overcast", "cozy", "huddly"].sample
+      adjective = ["cloudy", "overcast", "cozy", "huddly", "murky", "turbid"].sample
     when 'partly-cloudy-day'
       adjective = ["beautiful", "promising", "super"].sample
     else
