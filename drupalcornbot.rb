@@ -4,6 +4,7 @@
 
 require "cinch"
 require "forecast_io"
+require "indefinite_article"
 require_relative "../Quintus_cinch-plugins/plugins/history"
 require_relative "../Quintus_cinch-plugins/plugins/link_info"
 require_relative "../cinch-identify/lib/cinch/plugins/identify"
@@ -62,22 +63,23 @@ class Morning
     when 'sleet'
       adjective = ["sleety", "great day to be alive this", "fresh", "slippery"].sample
     when 'wind'
-      adjective = ["windy", "blustery"].sample
+      adjective = ["windy", "blustery", "breezy", "gusty"].sample
     when 'fog'
       adjective = ["foggy", "foggy foggy", "thick as pea soup out there this"].sample
     when 'cloudy'
-      adjective = ["cloudy", "overcast", "cozy", "huddly"].sample
+      adjective = ["cloudy", "overcast", "cozy", "huddly", "murky", "turbid"].sample
     when 'partly-cloudy-day'
       adjective = ["beautiful", "promising", "super"].sample
     else
       adjective = ["crisp", "blustery", "wintery", "snowy", "slushy", "slippery", "windy", "frozen", "beautiful", "sparkly"].sample
-    end
-    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "Harp Seal", "squash"].sample
+    end    
+    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "harp seals", "squash"].sample
     verbing = ["cozy", "snug", "freezing", "shuffling", "gathering", "singing the blues", "sleeping", "playing", "waddling", "flapping"].sample
     if species == "squash"
        verbing = "being hunted"
     end
-    m.reply "Morning, #{m.user.nick}. It's a #{adjective} morning and the #{species} are #{verbing}!"
+    a_or_an = adjective.indefinite_article
+    m.reply "Morning, #{m.user.nick}. It's #{a_or_an} #{adjective} morning and the #{species} are #{verbing}!"
   end
 end
 
