@@ -1,0 +1,6 @@
+[submodule "cornbot/quintus_cinch-plugins"]
+	path = cornbot/quintus_cinch-plugins
+	url = https://github.com/Quintus/cinch-plugins.git
+[submodule "cornbot/cinch_identify"]
+	path = cornbot/cinch_identify
+	url = https://github.com/cinchrb/cinch-identify.git

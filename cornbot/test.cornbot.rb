@@ -5,10 +5,10 @@
 require "cinch"
 require "forecast_io"
 require "indefinite_article"
-require_relative "../Quintus_cinch-plugins/plugins/history"
-require_relative "../Quintus_cinch-plugins/plugins/link_info"
-require_relative "../cinch-identify/lib/cinch/plugins/identify"
-require_relative "../cornbot-identity"
+require_relative "./quintus_cinch-plugins/plugins/history"
+require_relative "./quintus_cinch-plugins/plugins/link_info"
+require_relative "./cinch_identify/lib/cinch/plugins/identify"
+require_relative "../test.cornbot-identity"
 
 # class Daytime
 #   include Cinch::Plugin

@@ -1,0 +1,23 @@
+** Adding some utilities
+su
+yum install git
+yum install openssl-devel
+
+** Building Ruby Environment
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile 
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+rbenv install 2.0.0-p353
+rbenv global 2.0.0-p353
+
+** Adding some Gems
+gem install cinch
+gem install indefinite_article
+gem install forecast_io
+gem install nokogiri
+
+**
+
+git submodule add https://github.com/Quintus/cinch-plugins.git cornbot/quintus_cinch-plugins
+git submodule add https://github.com/cinchrb/cinch-identify.git cornbot/cinch_identify
