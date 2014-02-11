@@ -161,7 +161,7 @@ end
 bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.freenode.net"
-    c.channels = ["#drupalcorn"]
+    c.channels = ["#testcornbot"]
     c.nick = IDENTITY
     c.plugins.plugins = [PHPfilter, Morning, Afternoon, CentralIowa, DrupalCorn, DrupalHawks, Help, WTF, Cinch::History, Cinch::Plugins::Identify, Cinch::LinkInfo]
     c.plugins.options[Cinch::History] = {
