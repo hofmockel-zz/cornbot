@@ -80,9 +80,6 @@ class Morning
     end
     a_or_an = adjective.indefinite_article
     m.reply "Morning, #{m.user.nick}. It's #{a_or_an} #{adjective} morning and the #{species} are #{verbing}!"
-    if species == "squash"
-       m.reply "http://www.public.iastate.edu/~jvandyk/squashhunt.html"
-    end
   end
 end
 
