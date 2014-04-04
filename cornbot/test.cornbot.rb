@@ -107,7 +107,7 @@ class WTF
 
   match /wtf/i, use_prefix: false
   def execute(m)
-    m.reply "WTF?  http://youtu.be/N3YypTOaa08"
+    m.reply "WTF?  https://www.youtube.com/watch?v=LrF_SYzvO78"
   end
 end
 
