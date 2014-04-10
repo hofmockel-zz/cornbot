@@ -71,10 +71,10 @@ class Morning
     when 'partly-cloudy-day'
       adjective = ["beautiful", "promising", "super"].sample
     else
-      adjective = ["crisp", "blustery", "wintery", "snowy", "slushy", "slippery", "windy", "frozen", "beautiful", "sparkly"].sample
+      adjective = ["crisp", "cool", "refreshing", "warm", "beautiful", "delightful", "inviting", "new", "unpredictable"].sample
     end    
-    species = ["polar bears", "penguins", "seals", "huskies", "arctic foxes", "snowy owls", "beluga whales", "harp seals", "squash"].sample
-    verbing = ["cozy", "snug", "freezing", "shuffling", "gathering", "singing the blues", "sleeping", "playing", "waddling", "flapping"].sample
+    species = ["leverets", "lambs", "fawns", "ground hogs", "robins", "larval", "kits", "cygnets", "owlets", "tadpoles", "spiderling", "squash"].sample
+    verbing = ["nesting", "licking the dew", "streatching out the cob webs", "eating everything in sight", "stalking", "spinning", "peeping", "playing", "following mom", "creeping"].sample
     if species == "squash"
        verbing = "being hunted"
     end
