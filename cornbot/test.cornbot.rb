@@ -73,8 +73,8 @@ class Morning
     else
       adjective = ["crisp", "cool", "refreshing", "warm", "beautiful", "delightful", "inviting", "new", "unpredictable"].sample
     end    
-    species = ["leverets", "lambs", "fawns", "ground hogs", "robins", "larval", "kits", "cygnets", "owlets", "tadpoles", "spiderling", "squash"].sample
-    verbing = ["nesting", "licking the dew", "streatching out the cob webs", "eating everything in sight", "stalking", "spinning", "peeping", "playing", "following mom", "creeping"].sample
+    species = ["leverets", "lambs", "fawns", "ground hogs", "robins", "larval", "kits", "swans", "owls", "frogs", "spiders", "squash"].sample
+    verbing = ["flocking", "licking the dew", "making a leaf pile", "fattening for winter", "stalking", "spinning", "peeping", "looking for a cave", "considering the autumnul", "creeping"].sample
     if species == "squash"
        verbing = "being hunted"
     end
