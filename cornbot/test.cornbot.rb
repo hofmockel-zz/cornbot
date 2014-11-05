@@ -74,7 +74,7 @@ class Morning
       adjective = ["crisp", "cool", "refreshing", "warm", "beautiful", "delightful", "inviting", "new", "unpredictable"].sample
     end    
     species = ["bats","gargoyles","goblins","witches","zombies","ghosts","werewolves","vampires","leverets", "lambs", "fawns", "ground hogs", "robins", "larval", "kits", "swans", "owls", "frogs", "spiders", "squash"].sample
-    verbing = ["cackling","squeaking","haunting","spooking","glowing","jabbering","spooking","wandering","wailing","flocking", "licking the dew", "making a leaf pile", "fattening for winter", "stalking", "spinning", "peeping", "looking for a cave", "considering the autumnal", "creeping"].sample
+    verbing = ["wandering","wailing","flocking", "licking the dew", "making a leaf pile", "fattening for winter", "stalking", "spinning", "peeping", "looking for a cave", "considering the autumnal", "creeping"].sample
     if species == "squash"
        verbing = "being hunted"
     end
@@ -91,7 +91,7 @@ class Afternoon
     preadverb = ["certainly", "sure", "absolutely", "unquestionably", ""].sample
     preadverb << ' ' if !preadverb.empty?
     verbed = ["worked hard", "innovated", "been creative", "set an example", "led the way", "created something new", "rocked the world"].sample
-    adverb = ["awesomely", "in a grand fashion", "wonderfully", "superbly", "delightfully", "magnificently", ""].sample
+    adverb = ["awesomely", "in a grand fashion", "wonderfully", "superbly", "delightfully", "magnificently", "inventively", "ingeniously"].sample
     adverb << ' ' if !adverb.empty?
     whenitwas = ["today", "this morning", "these last few days", "these last couple days", "lately", "since DrupalCorn"].sample
     m.reply "Afternoon, #{m.user.nick}. You've #{preadverb}#{verbed} #{adverb}#{whenitwas}!"
