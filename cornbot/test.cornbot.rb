@@ -5,6 +5,7 @@
 require "cinch"
 require "forecast_io"
 require "indefinite_article"
+require "date"
 require_relative "./quintus_cinch-plugins/plugins/history"
 require_relative "./quintus_cinch-plugins/plugins/link_info"
 require_relative "./cinch_identify/lib/cinch/plugins/identify"
@@ -36,6 +37,20 @@ require_relative "../test.cornbot-identity"
 #   ) === t
 #
 # end
+
+class Date
+  include Cinch::Plugin
+  
+  def season
+    day_hash = month * 100 + mday
+    case day_hash
+      when 101..401 then :winter
+      when 402..630 then :spring
+      when 701..930 then :summer
+      when 1001..1231 then :fall
+    end
+  end
+end
 
 class PHPfilter
   include Cinch::Plugin
@@ -79,7 +94,8 @@ class Morning
        verbing = "being hunted"
     end
     a_or_an = adjective.indefinite_article
-    m.reply "Morning, #{m.user.nick}. It's #{a_or_an} #{adjective} morning and the #{species} are #{verbing}!"
+    d = Date.today
+    m.reply "Morning, #{m.user.nick}. It's #{a_or_an} #{adjective} #{d.season} morning and the #{species} are #{verbing}!"
   end
 end
 
