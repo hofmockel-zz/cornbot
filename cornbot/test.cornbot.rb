@@ -5,7 +5,7 @@
 require "cinch"
 require "forecast_io"
 require "indefinite_article"
-require "Date"
+require "date"
 require_relative "./quintus_cinch-plugins/plugins/history"
 require_relative "./quintus_cinch-plugins/plugins/link_info"
 require_relative "./cinch_identify/lib/cinch/plugins/identify"
